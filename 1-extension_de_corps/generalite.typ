@@ -76,7 +76,7 @@ Dans ce chapitre, tous les corps considérés seront commutatifs.
   - Si $ker phi_alpha != {0}$, on dit que $alpha$ est algébrique sur $k$.
 
   - Si $ker phi_alpha = {0}$, on dit que $alpha$ est transcendant.
-]
+]<def_alg_tran>
 
 #remark[
   Soit $k subset.eq K$ une extension et soit $alpha in K$. \
@@ -87,16 +87,65 @@ Dans ce chapitre, tous les corps considérés seront commutatifs.
     $angle.l P angle.r = ker phi_alpha$.\
     On pose donc $mu_(alpha,k) in k[X]$ tel que
     $angle.l mu_(alpha,k) angle.r = ker phi_alpha$. \
-    On appelle $mu_(alpha,k)$ le polynôme minimal de $alpha$ sur $k$. \
-    Ainsi $phi_alpha$ induit un isomorphisme de $k[X] / mu_(alpha,k) -> k[alpha]$.
+    On appelle $mu_(alpha,k)$ le polynôme minimal de $alpha$ sur $k$.
+    On se permettra de ne pas préciser $k$ s'il n'y a pas d’ambiguïté.
+    Ainsi $phi_alpha$ induit un isomorphisme de
+    $quot(k[X],mu_(alpha,k) )-> k[alpha]$.
 
   - Si $alpha$ est transcendant sur $k$ alors $phi_alpha$ induit un
     isomorphisme de $k[X] -> k[alpha]$.\
     Ainsi $k[alpha]$ est isomorphe à un anneau de polynôme et donc
     est une extension de degré infini.
+]<rmq_importante>
+
+#proposition[
+  Si $k subset.eq K$ une extension et $alpha in K$ algébrique sur $k$
+  alors $mu_alpha$ est un polynôme irreductible.
+]<min_irr>
+
+#proof[
+  Supposons que $mu_alpha = P Q$ avec $P,Q in k[X]$ et $deg P$,$deg Q > 0$\
+  On a $0 = mu_alpha(alpha) = P(alpha) Q(alpha)$ c'est à dire
+  $Q(alpha) = 0$ ou $P(alpha) = 0$\
+  Si $Q(alpha) = 0$, $Q in ker phi_alpha = angle.l mu_alpha angle.r$.
+  Donc $mu_alpha$ divise $Q$. Puisque la factorisation n'est pas triviale
+  $deg Q < deg mu_alpha$. Ce qui est absurde.
+
+
+
 ]
 
 #definition[
   Soit $k subset.eq K$ une extension. On dit que $K$ est une extension algébrique
   si quelque soit $alpha in K$, $alpha$ est algébrique sur $k$. On dit qu'une extension est transcendante si elle n'est pas algébrique.
+]
+
+#theorem[
+  Soit $k subset.eq K$ une extension et soit $alpha in K$. Les propositions suivantes sont équivalents :
+  - $alpha$ est algébrique sur $k$
+  - $k(alpha) = k[alpha]$
+  - $k(alpha) tilde.eq quot(k[X], mu_(alpha,k))$
+  - $k(alpha)$ est de dimension finie
+]
+
+#proof[
+
+  - $1 => 2$ :
+    Il suffit de montrer que $k[alpha]$ est un corps.
+    Par la @min_irr, $mu_(alpha,k)$ est irreductible.
+    De plus $k[X]$ est principal et donc $angle.l mu_(alpha,k) angle.r$
+    est maximal. Ainsi $quot(k[X],mu_(alpha,k)) tilde.eq k[alpha] $ est un corps.
+
+  - 2 => 1,3 :
+    On considère le morphisme de la @def_alg_tran.
+    Si $phi_alpha$ est injectif alors $k[X] tilde.eq k(alpha)$ ce
+    qui est absurde. (ce qui prouve 1)\
+    Donc $ker phi_alpha = angle.l mu_alpha angle.r$
+    et par le premier théorème d'isomorphisme, $quot(k[X],mu_alpha) tilde.eq k(alpha)$.
+
+  - 3 => 4 : $quot(k[X],mu_alpha)$ est un $k$-espace vectoriel
+    de dimension $deg mu_alpha < oo$.
+
+  - $4 => 1$ :
+    Si $alpha$ n'est pas algébrique alors comme dit dans la @rmq_importante, $k[alpha]$ est isomorphe à un anneau de polynôme.
 ]
