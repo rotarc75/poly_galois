@@ -64,3 +64,39 @@ Dans ce chapitre, tous les corps considérés seront commutatifs.
   Si $k subset.eq L$ est une extension telle que $[L:k]$ est un nombre premier positif de $ZZ$ alors il n'existe pas d'extension intermediate $K$, c'est à dire telle que,
   $k subset.neq K subset.neq L$.
 ]
+
+#definition[
+  Soit $k subset.eq K$ une extension et soit $alpha in K$.
+  On considère l'homomorphisme d'anneau
+  $
+    phi_alpha &: k[X] -> K\
+    &P mapsto P(alpha)
+  $
+
+  - Si $ker phi_alpha != {0}$, on dit que $alpha$ est algébrique sur $k$.
+
+  - Si $ker phi_alpha = {0}$, on dit que $alpha$ est transcendant.
+]
+
+#remark[
+  Soit $k subset.eq K$ une extension et soit $alpha in K$. \
+
+  - Si $alpha$ est algébrique sur $k$ alors $phi_alpha$ est injective. \
+    Puisque $k[x]$ est intègre, $ker phi_alpha$ est un idéal premier. \
+    Il existe donc un unique polynôme unitaire irreductible $P$ tel que
+    $angle.l P angle.r = ker phi_alpha$.\
+    On pose donc $mu_(alpha,k) in k[X]$ tel que
+    $angle.l mu_(alpha,k) angle.r = ker phi_alpha$. \
+    On appelle $mu_(alpha,k)$ le polynôme minimal de $alpha$ sur $k$. \
+    Ainsi $phi_alpha$ induit un isomorphisme de $k[X] / mu_(alpha,k) -> k[alpha]$.
+
+  - Si $alpha$ est transcendant sur $k$ alors $phi_alpha$ induit un
+    isomorphisme de $k[X] -> k[alpha]$.\
+    Ainsi $k[alpha]$ est isomorphe à un anneau de polynôme et donc
+    est une extension de degré infini.
+]
+
+#definition[
+  Soit $k subset.eq K$ une extension. On dit que $K$ est une extension algébrique
+  si quelque soit $alpha in K$, $alpha$ est algébrique sur $k$. On dit qu'une extension est transcendante si elle n'est pas algébrique.
+]
